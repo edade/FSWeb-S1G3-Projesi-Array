@@ -75,7 +75,11 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
   Örneğin: cesitEkle(orijinalTatlar, "Kakule") işlevi doğru çalıştığında ["Kakule", "Muz",..."Vanilya"] şeklinde dönmelidir
 */
 
-function cesitEkle() {}
+function cesitEkle(orijinalTatlar, tatlar) {
+  orijinalTatlar.unshift(tatlar);
+  return orijinalTatlar;
+}
+console.log(cesitEkle(orijinalTatlar, "Kakule"));
 
 /* Cörev 4:
 
@@ -90,9 +94,10 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 function sonCesitiKaldir(orijinalTatlar) {
-  return orijinalTatlar.pop();
+  orijinalTatlar.pop();
+  return orijinalTatlar;
 }
-console.log(sonCesitiKaldir);
+console.log(sonCesitiKaldir(orijinalTatlar));
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
