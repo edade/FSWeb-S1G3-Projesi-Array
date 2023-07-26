@@ -110,9 +110,11 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/) {
-  /*kod buraya*/
+function indekstekiCesitiGetir(orijinalTatlar, tatlar) {
+  orijinalTatlar = orijinalTatlar[tatlar];
+  return orijinalTatlar;
 }
+console.log(indekstekiCesitiGetir(orijinalTatlar, 2));
 
 /* Görev 6:
 
@@ -129,10 +131,18 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/) {
-  /*kod buraya*/
+function ismeGoreCesitCikar(orijinalTatlar, tatlar) {
+  let i = 0;
+  while (i <= orijinalTatlar.length) {
+    if (tatlar === orijinalTatlar[i]) {
+      orijinalTatlar.splice(tatlar);
+      return orijinalTatlar;
+    }
+    i++;
+  }
 }
-
+console.log(orijinalTatlar, "Tarçın");
+console.log(orijinalTatlar.length);
 /* Görev 7:
 
 14 Şubat Sevgililer Günü'nde Firma, tüm çikolata lezzetlerini öne çıkaran bir promosyon malzemeleri oluşturmak istiyor.
