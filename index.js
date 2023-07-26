@@ -40,9 +40,10 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 function kopyala(copyTatlar) {
-  return (copyTatlar = orijinalTatlar.slice(0));
+  const sonuc = copyTatlar.slice();
+  return sonuc;
 }
-console.log(kopyala());
+//console.log(kopyala(orijinalTatlar));
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -62,7 +63,7 @@ function dizi25Cesitmi(size) {
     return false;
   }
 }
-console.log(dizi25Cesitmi());
+// console.log(dizi25Cesitmi());
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
 
@@ -75,11 +76,11 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
   Örneğin: cesitEkle(orijinalTatlar, "Kakule") işlevi doğru çalıştığında ["Kakule", "Muz",..."Vanilya"] şeklinde dönmelidir
 */
 
-function cesitEkle(orijinalTatlar, tatlar) {
-  orijinalTatlar.unshift(tatlar);
-  return orijinalTatlar;
+function cesitEkle(tatlar, yenitat) {
+  tatlar.unshift(yenitat);
+  return tatlar;
 }
-console.log(cesitEkle(orijinalTatlar, "Kakule"));
+// console.log("Burası", cesitEkle(orijinalTatlar, "Kakule"));
 
 /* Cörev 4:
 
@@ -93,11 +94,11 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
    Örneğin: sonCesitiKaldir(orijinalTatlar) çalıştırıldığında ["Kakule", "Muz",..."Çilek"] döndürülür.
 */
 
-function sonCesitiKaldir(orijinalTatlar) {
-  orijinalTatlar.pop();
-  return orijinalTatlar;
+function sonCesitiKaldir(tatlar) {
+  tatlar.pop();
+  return tatlar;
 }
-console.log(sonCesitiKaldir(orijinalTatlar));
+// console.log(sonCesitiKaldir(orijinalTatlar));
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
@@ -110,11 +111,11 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(orijinalTatlar, tatlar) {
-  orijinalTatlar = orijinalTatlar[tatlar];
-  return orijinalTatlar;
+function indekstekiCesitiGetir(tatlar, sira) {
+  let sonuc = tatlar[sira];
+  return sonuc;
 }
-console.log(indekstekiCesitiGetir(orijinalTatlar, 2));
+// console.log("İNdexteki çeşit", indekstekiCesitiGetir(orijinalTatlar, 2));
 
 /* Görev 6:
 
@@ -131,18 +132,17 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(orijinalTatlar, tatlar) {
-  let i = 0;
-  while (i <= orijinalTatlar.length) {
-    if (tatlar === orijinalTatlar[i]) {
-      orijinalTatlar.splice(tatlar);
-      return orijinalTatlar;
+function ismeGoreCesitCikar(tatlar, lezzet) {
+  for (let i = 0; i < tatlar.length; i++) {
+    if (tatlar[i] == lezzet) {
+      tatlar.splice(i, 1);
     }
-    i++;
   }
+  return tatlar;
 }
-console.log(orijinalTatlar, "Tarçın");
-console.log(orijinalTatlar.length);
+console.log(ismeGoreCesitCikar(orijinalTatlar, "Tarçın"));
+console.log(ismeGoreCesitCikar(orijinalTatlar.length));
+
 /* Görev 7:
 
 14 Şubat Sevgililer Günü'nde Firma, tüm çikolata lezzetlerini öne çıkaran bir promosyon malzemeleri oluşturmak istiyor.
@@ -163,8 +163,14 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
   Bu sorunu çözmek için GELİŞMİŞ DİZİ YÖNTEMLERİNİ (yani .filter) KULLANMAYIN.
 */
 
-function ismeGoreFiltrele(/*kod buraya*/) {
-  /*kod buraya*/
+function ismeGoreFiltrele(tatlar, lezzet) {
+  let sonuc = [];
+  for (let i = 0; i < tatlar.length; i++) {
+    if (tatlar[i].includes(lezzet)) {
+      sonuc.push(tatlar[i]);
+    }
+  }
+  return sonuc;
 }
 
 /* ALIŞTIRMA */
