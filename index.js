@@ -54,10 +54,15 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 Örneğin: dizi25Cesit(orijinalTatlar) kodunuz düzgün çalışıyorsa true değerini döndürür.
 */
 
-function dizi25Cesitmi(/*kod buraya*/) {
-  /*kod buraya*/
+function dizi25Cesitmi(size) {
+  size = orijinalTatlar.length;
+  if (size === orijinalTatlar.length) {
+    return true;
+  } else {
+    return false;
+  }
 }
-
+console.log(dizi25Cesitmi());
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
 
